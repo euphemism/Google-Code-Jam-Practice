@@ -1,3 +1,5 @@
+#From https://code.google.com/codejam/contest/4284486/dashboard
+
 import math
 
 def switch(string):
