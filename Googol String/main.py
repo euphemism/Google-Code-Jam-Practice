@@ -11,7 +11,8 @@ def generate(size, string):
         return string
     return generate(size - 1, string + '0' + switch(reverse(string)))
 
-s = generate(20, '')
+s = '001001100011011000100111001101100010011000110111001001110011011000' + \
+    '1001100011011000100111001101110010011000110111001001110011011' # = generate(7, '')
 
 def calculate_value(k):
     inverse = True
@@ -26,8 +27,8 @@ def calculate_value(k):
         k = two_to_the_np - (k - two_to_the_np)
     return int(s[k - 1]) ^ inverse
 
-with open('A-large-practice.in', 'r') as f:
-    with open('A-large-practice.out', 'w') as o:
+with open('A-small-practice.in', 'r') as f:
+    with open('A-small-practice.out', 'w') as o:
         number_of_cases = int(f.readline())
         current_case = 0
         while current_case < number_of_cases:
