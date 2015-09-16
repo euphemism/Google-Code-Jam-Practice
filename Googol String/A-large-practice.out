@@ -16,8 +16,8 @@ Case #15: 1
 Case #16: 1
 Case #17: 1
 Case #18: 0
-Case #19: 1
-Case #20: 0
+Case #19: 0
+Case #20: 1
 Case #21: 1
 Case #22: 1
 Case #23: 0
@@ -76,7 +76,7 @@ Case #75: 1
 Case #76: 1
 Case #77: 1
 Case #78: 0
-Case #79: 0
+Case #79: 1
 Case #80: 0
 Case #81: 0
 Case #82: 1
@@ -85,7 +85,7 @@ Case #84: 1
 Case #85: 1
 Case #86: 0
 Case #87: 0
-Case #88: 0
+Case #88: 1
 Case #89: 0
 Case #90: 1
 Case #91: 0

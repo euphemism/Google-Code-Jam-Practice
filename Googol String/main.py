@@ -11,28 +11,25 @@ def generate(size, string):
         return string
     return generate(size - 1, string + '0' + switch(reverse(string)))
 
+s = generate(20, '')
+
 def calculate_value(k):
-    inverse = False
+    inverse = True
     prev_k = -1
     while (not k == prev_k):
-        inverse = not inverse
-        nearest_power = (math.floor(math.log(k, 2)))
-        if ((k == (2 ** nearest_power)) and (prev_k == -1)):
-            k = -1
-            break
-        prev_k = k
+        nearest_power = math.floor(math.log(k, 2))
         two_to_the_np = 2 ** nearest_power
+        if k == two_to_the_np and prev_k == -1:
+            return 0
+        inverse = not inverse
+        prev_k = k
         k = two_to_the_np - (k - two_to_the_np)
-    return (k, inverse)
-    
-s = generate(20, '')
-ls = [1, 2, 3, 10]
+    return int(s[k - 1]) ^ inverse
 
-for i in ls:
-    k, inverse = calculate_value(i)
-    if (k == -1):
-        print(0)
-    else:
-        print(int(s[k]) ^ inverse)
-
-print(generate(10, ''))
+with open('A-large-practice.in', 'r') as f:
+    with open('A-large-practice.out', 'w') as o:
+        number_of_cases = int(f.readline())
+        current_case = 0
+        while current_case < number_of_cases:
+            current_case = current_case + 1
+            o.write('Case #{}: {}\n'.format(current_case, calculate_value(int(f.readline()))))
