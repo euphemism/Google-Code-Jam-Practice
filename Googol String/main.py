@@ -13,20 +13,24 @@ def generate(size, string):
         return string
     return generate(size - 1, string + '0' + switch(reverse(string)))
 
-s = '001001100011011000100111001101100010011000110111001001110011011000' + \
-    '1001100011011000100111001101110010011000110111001001110011011' # = generate(7, '')
+s = ''
 
 def calculate_value(k):
+    global s
     inverse = True
     prev_k = -1
-    while (not k == prev_k):
+    while not k == prev_k:
         nearest_power = math.floor(math.log(k, 2))
         two_to_the_np = 2 ** nearest_power
         if k == two_to_the_np and prev_k == -1:
             return 0
         inverse = not inverse
+        if (k <= len(s)):
+            break
         prev_k = k
         k = two_to_the_np - (k - two_to_the_np)
+    while (k > len(s)):
+        s = generate(1, s)
     return int(s[k - 1]) ^ inverse
 
 with open('A-small-practice.in', 'r') as f:
